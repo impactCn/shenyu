@@ -18,6 +18,11 @@
 package org.apache.shenyu.protocol.mqtt;
 
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.mqtt.MqttConnAckMessage;
+import io.netty.handler.codec.mqtt.MqttConnectMessage;
+import io.netty.handler.codec.mqtt.MqttConnectReturnCode;
+import io.netty.handler.codec.mqtt.MqttMessageBuilders;
+import org.springframework.util.StringUtils;
 
 /**
  * Client requests a connection to a server.
@@ -25,7 +30,17 @@ import io.netty.channel.ChannelHandlerContext;
 public class Connect extends MessageType {
 
     @Override
-    public void connect(final ChannelHandlerContext ctx) {
+    public void connect(final ChannelHandlerContext ctx, final MqttConnectMessage msg) {
+        String userName = msg.payload().userName();
+        byte[] passwordInBytes = msg.payload().passwordInBytes();
+
+
+
+        MqttConnAckMessage ackMessage = MqttMessageBuilders.connAck()
+                .returnCode(MqttConnectReturnCode.CONNECTION_ACCEPTED)
+                .sessionPresent(true)
+                .build();
+        ctx.writeAndFlush(ackMessage);
 
     }
 }
