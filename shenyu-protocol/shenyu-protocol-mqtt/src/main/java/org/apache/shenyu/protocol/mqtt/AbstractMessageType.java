@@ -33,6 +33,7 @@ public abstract class AbstractMessageType {
     /**
      * Client request to connect to Server.
      * @param ctx ChannelHandlerContext
+     * @param msg msg
      */
     public void connect(final ChannelHandlerContext ctx, final MqttConnectMessage msg) {
 
