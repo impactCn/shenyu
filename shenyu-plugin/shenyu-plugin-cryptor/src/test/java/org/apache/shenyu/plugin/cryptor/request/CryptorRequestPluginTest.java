@@ -159,7 +159,8 @@ public class CryptorRequestPluginTest {
                 .method(HttpMethod.POST, "/test")
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .body("{\"inputToken\": "
-                        + "{\"test\":\"kYPZgOAR2pEipskl5WURW/r3CMxNQJwbs4jbTAOfZNV39L4WkaTOqAeolV+rlKCKiXKvhfHWaxQOTMm9hQBxLA==\"}"
+                        + "{\"test\":\"kYPZgOAR2pEipskl5WURW/r3CMxNQJwbs4jbTAOfZNV39L4WkaTOqAeolV+rlKCKiXKvhfHWaxQOTMm9hQBxLA==\"},"
+                        + "\"test\":\"test\""
                         + "}"));
         SelectorData selectorData = mock(SelectorData.class);
         when(this.chain.execute(any())).thenReturn(Mono.empty());

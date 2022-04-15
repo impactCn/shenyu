@@ -19,6 +19,7 @@ package org.apache.shenyu.plugin.cryptor.utils;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import org.apache.shenyu.common.utils.GsonUtils;
 import org.apache.shenyu.plugin.api.result.ShenyuResultEnum;
 import org.apache.shenyu.plugin.api.result.ShenyuResultWrap;
 import org.apache.shenyu.plugin.api.utils.WebFluxResultUtils;
@@ -27,6 +28,7 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 import java.util.Arrays;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -63,9 +65,9 @@ public final class CryptorUtil {
      * @return Mono
      */
     public static Mono<String> success(final String originalBody, final String modifiedBody, final String way, final String fieldNames) {
-        if (CryptorStrategyFactory.DECRYPT.equals(way)) {
-            return Mono.just(modifiedBody);
-        }
+//        if (CryptorStrategyFactory.DECRYPT.equals(way)) {
+//            return Mono.just(modifiedBody);
+//        }
         AtomicInteger initDeep = new AtomicInteger();
         initDeep.set(0);
         JsonElement je = new JsonParser().parse(originalBody);

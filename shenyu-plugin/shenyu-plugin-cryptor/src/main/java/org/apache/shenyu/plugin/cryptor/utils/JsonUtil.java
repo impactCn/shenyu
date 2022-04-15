@@ -91,6 +91,7 @@ public final class JsonUtil {
                                               final AtomicInteger initDeep,
                                               final String value,
                                               final List<String> deepKey) {
+        boolean flag = false;
         if (CollectionUtils.isEmpty(deepKey)) {
             return jsonElement;
         }
@@ -110,13 +111,21 @@ public final class JsonUtil {
             JsonObject object = jsonElement.getAsJsonObject();
             JsonObject objectNew = new JsonObject();
             for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
+
+//                if (initDeep.get() > deepKey.size() - 1) {
+//                    break;
+//                }
+
                 if (deepKey.get(initDeep.get()).equals(entry.getKey())) {
                     initDeep.incrementAndGet();
                 }
                 String key = entry.getKey();
                 if (initDeep.get() == deepKey.size()) {
                     initDeep.set(deepKey.size() - 1);
-                    object.addProperty(key, value);
+                    if (!flag) {
+                        object.addProperty(key, value);
+                        flag = true;
+                    }
                 }
                 JsonElement jsonEle = object.get(key);
                 JsonElement jsonElementNew = replaceJsonNode(jsonEle, initDeep, value, deepKey);
