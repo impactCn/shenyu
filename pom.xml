@@ -607,12 +607,12 @@
                     <dependency>
                         <groupId>org.apache.maven.scm</groupId>
                         <artifactId>maven-scm-provider-gitexe</artifactId>
-                        <version>1.8.1</version>
+                        <version>1.9.5</version>
                     </dependency>
                     <dependency>
                         <groupId>org.apache.maven.scm</groupId>
                         <artifactId>maven-scm-provider-git-commons</artifactId>
-                        <version>1.8.1</version>
+                        <version>1.9.5</version>
                     </dependency>
                 </dependencies>
             </plugin>
