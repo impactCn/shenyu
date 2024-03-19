@@ -174,8 +174,6 @@ public class NettyHttpProperties {
 
         private Boolean tcpNoDelay = true;
 
-        private Integer soSndBuf = 16384;
-
         private Integer ipTos = 0;
 
         private Boolean allowHalfClosure = false;
@@ -232,24 +230,6 @@ public class NettyHttpProperties {
          */
         public void setTcpNoDelay(final Boolean tcpNoDelay) {
             this.tcpNoDelay = tcpNoDelay;
-        }
-
-        /**
-         * get soSndBuf.
-         *
-         * @return soSndBuf
-         */
-        public Integer getSoSndBuf() {
-            return soSndBuf;
-        }
-
-        /**
-         * set soSndBuf.
-         *
-         * @param soSndBuf SO_SNDBUF
-         */
-        public void setSoSndBuf(final Integer soSndBuf) {
-            this.soSndBuf = soSndBuf;
         }
 
         /**
